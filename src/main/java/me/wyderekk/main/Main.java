@@ -22,7 +22,6 @@ public class Main {
     public static void main(String[] args) {
         try {
             DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(JsonUtil.getToken());
-            System.out.println("Bot is ready.");
             builder.setStatus(OnlineStatus.ONLINE);
             builder.enableIntents(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MEMBERS, GatewayIntent.GUILD_PRESENCES);
             builder.setMemberCachePolicy(MemberCachePolicy.ALL);
