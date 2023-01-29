@@ -23,6 +23,8 @@ import java.lang.management.ManagementFactory;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -34,9 +36,12 @@ public class Cmd extends ListenerAdapter {
         JDA jda = e.getJDA();
         String command = e.getName();
         EmbedBuilder eb = new EmbedBuilder();
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         eb.setColor(Main.color);
         eb.setTimestamp(Instant.now());
         eb.setFooter("AiO", "https://cdn.discordapp.com/attachments/767767622531940364/864206783203901450/ezgif-2-7dfbb1ca4f15.gif");
+        System.out.println("[!] [" + now.format(formatter) + "] " + e.getUser().getName() + " used /" + command + " command.");
         switch (command) {
             case "essa" -> {
                 eb.setTitle("Twoj poziom essy: " + RandomUtil.getRandom(1, 100) + "%");
@@ -202,6 +207,11 @@ public class Cmd extends ListenerAdapter {
                 }
                 e.reply("").addEmbeds(eb.build()).queue();
             }
+            case "invite" -> {
+                eb.setTitle("Zapros bota na swoj serwer uzywajac tego linku: ");
+                eb.setDescription("https://discord.com/api/oauth2/authorize?client_id=853581591997448222&permissions=8&scope=bot%20applications.commands");
+                e.reply("").addEmbeds(eb.build()).queue();
+            }
         }
     }
 
@@ -224,7 +234,8 @@ public class Cmd extends ListenerAdapter {
         commandData.add(Commands.slash("profil","Wyświetla informacje na temat profilu Discord").addOptions(option2));
         commandData.add(Commands.slash("market","Pobiera cenę skina csgo ze Steama").addOptions(option5, option6, option7));
         commandData.add(Commands.slash("ping", "Wyswietla ping bota."));
-        System.out.println("Loaded " + commandData.size() + " commands!");
+        commandData.add(Commands.slash("invite", "Zapros bota na swoj serwer."));
+        System.out.println("[!] Loaded " + commandData.size() + " commands!");
         e.getJDA().updateCommands().addCommands(commandData).queue();
     }
 }

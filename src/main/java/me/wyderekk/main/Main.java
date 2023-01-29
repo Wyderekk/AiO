@@ -20,6 +20,10 @@ public class Main {
     public static JSONParser parser = new JSONParser();
 
     public static void main(String[] args) {
+        initializeBot();
+    }
+
+    private static void initializeBot() {
         try {
             DefaultShardManagerBuilder builder = DefaultShardManagerBuilder.createDefault(JsonUtil.getToken());
             builder.setStatus(OnlineStatus.ONLINE);
