@@ -162,6 +162,9 @@ public class Cmd extends ListenerAdapter {
                     String[] data = SteamAPI.makeRequest(marketHash, condition, statTrak);
                     if(data == null) {
                         eb.setTitle("Error: Podany skin nie istnieje!");
+                    } else if(data.length < 3){
+                        eb.setTitle("Dane dla skina: " + marketHash + SteamAPI.getCondition(condition));
+                        eb.addField("Najniższa cena", data[0], false);
                     } else {
                         eb.setTitle("Dane dla skina: " + marketHash + SteamAPI.getCondition(condition));
                         eb.addField("Najniższa cena", data[0], false);
@@ -175,6 +178,15 @@ public class Cmd extends ListenerAdapter {
                         eb.setTitle("Error: Podany skin nie istnieje!");
                     } else {
                         eb.setTitle("Dane dla skina: " + marketHash + SteamAPI.getCondition(condition));
+                        eb.addField("Najniższa cena", data[0], false);
+                    }
+                } else if(e.getOption("condition") == null && e.getOption("stattrak") != null) {
+                    statTrak = e.getOption("stattrak").getAsBoolean();
+                    String[] data = SteamAPI.makeRequest(marketHash, statTrak);
+                    if(data == null) {
+                        eb.setTitle("Error: Podany skin nie istnieje!");
+                    } else {
+                        eb.setTitle("Data for skin: " + marketHash);
                         eb.addField("Najniższa cena", data[0], false);
                     }
                 } else {
@@ -210,7 +222,7 @@ public class Cmd extends ListenerAdapter {
         commandData.add(Commands.slash("stats", "Pokazuje zużycie zasobóww przez bota."));
         commandData.add(Commands.slash("ship", "Shipuje cie z osoba").addOptions(option3, option4));
         commandData.add(Commands.slash("profil","Wyświetla informacje na temat profilu Discord").addOptions(option2));
-        commandData.add(Commands.slash("market","Pobiera cenę skina ze Steama (nie działa na kosy)").addOptions(option5, option6, option7));
+        commandData.add(Commands.slash("market","Pobiera cenę skina ze Steama (nie działa na wszystkie kosy)").addOptions(option5, option6, option7));
         commandData.add(Commands.slash("ping", "Wyswietla ping bota."));
         System.out.println("Loaded " + commandData.size() + " commands!");
         e.getJDA().updateCommands().addCommands(commandData).queue();
