@@ -222,7 +222,7 @@ public class Cmd extends ListenerAdapter {
         commandData.add(Commands.slash("stats", "Pokazuje zużycie zasobóww przez bota."));
         commandData.add(Commands.slash("ship", "Shipuje cie z osoba").addOptions(option3, option4));
         commandData.add(Commands.slash("profil","Wyświetla informacje na temat profilu Discord").addOptions(option2));
-        commandData.add(Commands.slash("market","Pobiera cenę skina ze Steama (nie działa na wszystkie kosy)").addOptions(option5, option6, option7));
+        commandData.add(Commands.slash("market","Pobiera cenę skina csgo ze Steama").addOptions(option5, option6, option7));
         commandData.add(Commands.slash("ping", "Wyswietla ping bota."));
         System.out.println("Loaded " + commandData.size() + " commands!");
         e.getJDA().updateCommands().addCommands(commandData).queue();
