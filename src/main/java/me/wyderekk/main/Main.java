@@ -1,6 +1,6 @@
 package me.wyderekk.main;
 
-import me.wyderekk.cmd.Cmd;
+import me.wyderekk.cmd.CmdManager;
 import me.wyderekk.utils.JsonUtil;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -31,9 +31,9 @@ public class Main {
             builder.setMemberCachePolicy(MemberCachePolicy.ALL);
             builder.setChunkingFilter(ChunkingFilter.ALL);
             builder.enableCache(CacheFlag.ONLINE_STATUS);
-            builder.setActivity(Activity.watching("wyderekk"));
+            builder.setActivity(Activity.watching("wyderekk"));;
             ShardManager shardManager = builder.build();
-            shardManager.addEventListener(new Cmd());
+            shardManager.addEventListener(new CmdManager());
         } catch(Exception e) {
             e.printStackTrace();
         }
