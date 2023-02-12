@@ -1,22 +1,18 @@
 package me.wyderekk.cmd;
 
 import me.wyderekk.cmd.commands.AvatarCmd;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 public class Cmd {
 
     private String name;
     private String description;
     private Category category;
-    private static int maxSize = 10;
-    private Cmd[] cmds = new Cmd[maxSize];
 
     public Cmd(String n, String d, Category c) {
         this.name = n;
         this.description = d;
         this.category = c;
-        if(cmds.length >= maxSize) {
-            maxSize++;
-        }
     }
 
     public String getName() {
