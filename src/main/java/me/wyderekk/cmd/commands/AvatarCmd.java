@@ -12,7 +12,6 @@ public class AvatarCmd extends Cmd {
     public AvatarCmd() {
         super("avatar", "Wysyła avatar uzytkownika", Category.INFO);
     }
-
     public static void execute(SlashCommandInteractionEvent e, EmbedBuilder eb) {
         OptionMapping option = e.getOption("username");
         String message = option.getAsString();

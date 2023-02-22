@@ -9,7 +9,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 public class EssaCmd extends Cmd {
 
 
-    public EssaCmd(String n, String d, Category c) {
+    public EssaCmd() {
         super("essa", "Wysyla poziom essy uzytkownika", Category.FUN);
     }
 

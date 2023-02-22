@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 public class ShipCmd extends Cmd {
 
-    public ShipCmd(String n, String d, Category c) {
+    public ShipCmd() {
         super("ship", "Shipuje Cie z osobą.", Category.FUN);
     }
 

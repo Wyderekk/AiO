@@ -16,7 +16,7 @@ import java.util.Date;
 
 public class ProfileCmd extends Cmd {
 
-    public ProfileCmd(String n, String d, Category c) {
+    public ProfileCmd() {
         super("profil", "Wysyła informacje na temat profilu użytkownika.", Category.INFO);
     }
 

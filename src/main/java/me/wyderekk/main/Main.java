@@ -1,5 +1,6 @@
 package me.wyderekk.main;
 
+import me.wyderekk.cmd.Cmd;
 import me.wyderekk.cmd.CmdManager;
 import me.wyderekk.utils.JsonUtil;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -21,6 +22,7 @@ public class Main {
 
     public static void main(String[] args) {
         initializeBot();
+        Cmd.initializeCmd();
     }
 
     private static void initializeBot() {

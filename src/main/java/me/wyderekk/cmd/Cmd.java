@@ -1,13 +1,16 @@
 package me.wyderekk.cmd;
 
-import me.wyderekk.cmd.commands.AvatarCmd;
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
+import me.wyderekk.cmd.commands.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Cmd {
 
     private String name;
     private String description;
     private Category category;
+    private static final List<Cmd> cmdList = new ArrayList<>();
 
     public Cmd(String n, String d, Category c) {
         this.name = n;
@@ -15,6 +18,17 @@ public class Cmd {
         this.category = c;
     }
 
+    public static void initializeCmd() {
+        cmdList.add(new AvatarCmd());
+        cmdList.add(new EssaCmd());
+        cmdList.add(new InviteCmd());
+        cmdList.add(new MarketCmd());
+        cmdList.add(new ProfileCmd());
+        cmdList.add(new PingCmd());
+        cmdList.add(new ShipCmd());
+        cmdList.add(new StatsCmd());
+        System.out.println("[!] Created " + cmdList.size() + " commands!");
+    }
     public String getName() {
         return name;
     }

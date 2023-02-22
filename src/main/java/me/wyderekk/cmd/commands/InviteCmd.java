@@ -6,7 +6,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 public class InviteCmd extends Cmd {
 
-    public InviteCmd(String n, String d, Category c) {
+    public InviteCmd() {
         super("invite", "Zaproś bota na swój server!", Category.INFO);
     }
 

@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 public class MarketCmd extends Cmd {
 
-    public MarketCmd(String n, String d, Category c) {
+    public MarketCmd() {
         super("market", "Pobiera cenę skina CSGO ze Steama", Category.INFO);
     }
 

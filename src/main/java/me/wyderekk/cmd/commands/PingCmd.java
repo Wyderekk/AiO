@@ -7,8 +7,8 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 public class PingCmd extends Cmd {
 
-    public PingCmd(String n, String d, Category c) {
-        super(n, d, c);
+    public PingCmd() {
+        super("", "", Category.INFO);
     }
 
     public static void execute(SlashCommandInteractionEvent e, EmbedBuilder eb, JDA jda) {

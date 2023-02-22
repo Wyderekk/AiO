@@ -4,13 +4,12 @@ import com.sun.management.OperatingSystemMXBean;
 import me.wyderekk.cmd.Cmd;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-
 import java.lang.management.ManagementFactory;
 
 public class StatsCmd extends Cmd {
 
 
-    public StatsCmd(String n, String d, Category c) {
+    public StatsCmd() {
         super("stats", "Wysyła statystyki na temat zużycia zasobów przez bota.", Category.INFO);
     }
 
