@@ -18,7 +18,8 @@ public enum Emote {
     BRILLIANCE("<:Brilliance:1064696853486121041>"),
     BALANCE("<:Balance:1064696851367989328>"),
     EARLY_SUPPORTER("<:EarlySupporter:1064697355212967947>"),
-    HYPESQUAD("<a:Event:1064696861186854993>");
+    HYPESQUAD("<a:Event:1064696861186854993>"),
+    ARROW("<a:Arrow:1081673031342116935>");
 
     Emote(String desc) {
         this.desc = desc;

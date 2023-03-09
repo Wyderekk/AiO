@@ -2,6 +2,7 @@ package me.wyderekk.cmd;
 
 import me.wyderekk.cmd.commands.*;
 import me.wyderekk.main.Main;
+import me.wyderekk.utils.Emote;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -21,7 +22,7 @@ import java.util.List;
 public class CmdManager extends ListenerAdapter {
 
     @Override
-    public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent e) {
+    public void onSlashCommandInteraction(SlashCommandInteractionEvent e) {
         JDA jda = e.getJDA();
         String command = e.getName();
         EmbedBuilder eb = new EmbedBuilder();
@@ -53,6 +54,24 @@ public class CmdManager extends ListenerAdapter {
             case "market" -> {
                 MarketCmd.execute(e, eb);
             }
+            case "ys" -> {
+                eb.setTitle(Emote.ARROW.getDesc() + " **W strefie VIP znajdziesz:**");
+//                eb.addField("**VIP (dostep do wszystkiego)**", "50zł", true);
+//                eb.addField("**Cheaty do LabyModa (injector)**", "35zł", true);
+//                eb.addField("**Cheaty forge (injector)**", "20zł", true);
+//                eb.addField("**Dostep do modow, skryptow i unikalnych cheat clientow**", "10zł / 5 zaproszeń / 2 boosty", true);
+//                eb.addField("**Dostęp do wycieku 18 milionow IP 1.8/1.16**", "40zł", true);
+                eb.setDescription(
+                        "**Ponad 10 prywatnych jak i publicznych cheat clientow na wersje 1.12.2 -> 1.19.3**\n" +
+                        "**Prywatne skrypty**\n" +
+                        "**Baze danych 18 milionow adresow IP**\n" +
+                        "**Cheaty do LabyMod**\n" +
+                        "**Injectowalne cheaty do Forge**\n" +
+                        "\n" +
+                        "**Ponadto odbywają się tam giveawaye tylko dla osób VIP i specjalne okacje dla tej grupy.**");
+                e.reply(";)");
+                e.getChannel().sendMessageEmbeds(eb.build()).queue();
+            }
             case "invite" -> {
                 InviteCmd.execute(e, eb);
             }
@@ -60,7 +79,7 @@ public class CmdManager extends ListenerAdapter {
     }
 
     @Override
-    public void onReady(@NotNull ReadyEvent e) {
+    public void onReady(ReadyEvent e) {
         List<CommandData> commandData = new ArrayList<>();
         OptionData option = new OptionData(OptionType.USER, "username", "Username", true);
         OptionData option2 = new OptionData(OptionType.USER, "username", "Username", false);
@@ -71,6 +90,7 @@ public class CmdManager extends ListenerAdapter {
                 .addChoice("Factory New", "factory_new").addChoice("Minimal Wear", "minimal_wear").addChoice("Field Tested", "field_tested")
                 .addChoice("Well Worn", "well_worn").addChoice("Battle Scarred", "battle_scarred");
         OptionData option7  = new OptionData(OptionType.BOOLEAN, "stattrak", "StatTrak", false);
+        commandData.add(Commands.slash("ys", "dasdas"));
         commandData.add(Commands.slash("avatar", "Pobiera avatar uzytkownika").addOptions(option));
         commandData.add(Commands.slash("essa", "Twój poziom essy B)"));
         commandData.add(Commands.slash("stats", "Pokazuje zużycie zasobóww przez bota."));

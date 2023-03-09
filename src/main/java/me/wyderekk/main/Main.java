@@ -33,7 +33,7 @@ public class Main {
             builder.setMemberCachePolicy(MemberCachePolicy.ALL);
             builder.setChunkingFilter(ChunkingFilter.ALL);
             builder.enableCache(CacheFlag.ONLINE_STATUS);
-            builder.setActivity(Activity.watching("wyderekk"));;
+            builder.setActivity(Activity.watching("wyderekk"));
             ShardManager shardManager = builder.build();
             shardManager.addEventListener(new CmdManager());
         } catch(Exception e) {
